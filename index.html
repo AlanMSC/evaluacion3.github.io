@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libreria</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
+<link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header class="hero">
+        <h1 class="text-center">Registro de libros</h1>
+    <main class="row">
+        <div class="col-3">
+            <form class=" mt-3 mb-3">
+                <div class="card-header">
+                    <h3>ingrese sus datos</h3>
+                </div>
+                <div class="card-body">
+                    <div class="">
+                        <label class=".text">Nombre libro</label>
+                        <input type="text" id="nombre" name="nombre" class="form-control" onblur="verificar(this.id)">
+                        <div id="e-nombre"></div>
+                    </div>
+                    <div>
+                        <label>Autor</label>
+                        <input type="text" id="autor" name="autor" class="form-control" onblur="verificar(this.id)">
+                        <div id="e-autor"></div>
+                    </div>
+                    <div>
+                        <label>Saga</label>
+                        <input type="text" id="saga" name="saga" class="form-control" onblur="verificar(this.id)">
+                        <div id="e-saga"></div>
+                    </div>
+                    <div>
+                        <label>Precio</label>
+                        <input type="text" id="precio" name="precio" maxlength="2" class="form-control" onblur="verificar(this.id)" onkeypress="return soloNumeros(event)">
+                        <div id="e-precio"></div>
+                    </div>
+                    <div>
+                        <label>Numero paginas</label>
+                        <input type="text" id="npagina" name="npágina" class="form-control" maxlength="2000" onblur="verificar(this.id)" onkeypress="return soloNumeros(event)">
+                        <div id="e-npagina"></div>
+                    </div>
+                    <div>
+                        <label>Tipo de tapa</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="ttapa" id="tapa_blanda" value="blanda" onclick="validaRadio(this.name)">
+                            <label class="form-check-label">
+                                Tapa blanda
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="ttapa" id="tapa_dura" value="dura" onclick="validaRadio(this.name)">
+                            <label class="form-check-label">
+                                Tapa dura
+                            </label>
+                        </div>
+                        <div id="e-ttapa"></div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <input type="button" value="Limpiar" onclick="limpiar()" class="btn btn-info w-25">
+                    <input type="submit" value="Guardar" onclick="valida(event)" id="btnSave" class="btn btn-success w-25">
+                </div>
+            </form>
+        </div>
+        <div class="col-8 mt-3">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                    <thead class="table-dark">
+                        <tr class="text-center">
+                            <th>Nombre libro</th>
+                            <th>Autor</th>
+                            <th>Saga</th>
+                            <th>Precio</th>
+                            <th>Numero de paginas</th>
+                            <th>Tipo de tapa</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="contenido"></tbody>
+                </table>
+            </div>
+        </div>
+    </header>
+    </main>
+    <script src="validaRun.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="utilidades.js" ></script>
+    <script src="funciones.js" type="module"></script>
+</body>
+</html>
